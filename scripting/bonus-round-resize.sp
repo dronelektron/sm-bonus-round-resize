@@ -2,36 +2,34 @@
 
 #include "bonus-round-events/api"
 #include "player-resize/api"
-#include "player-resize/client"
-#include "player-resize/entity"
 
 #include "modules/console-variable.sp"
 
-#define AUTO_CREATE_YES true
+#define BASE_SCALE 1.0
 
 public Plugin myinfo = {
     name = "Bonus round resize",
     author = "Dron-elektron",
-    description = "Allows you to resize players at the end of the round",
-    version = "1.0.2",
-    url = "https://github.com/dronelektron/bonus-round-resize"
+    description = "Allows you to change the size of the players in the bonus round",
+    version = "1.1.0",
+    url = "https://github.com/dronelektron/sm-bonus-round-resize"
 };
 
 public void OnPluginStart() {
     Variable_Create();
-    AutoExecConfig(AUTO_CREATE_YES, "bonus-round-resize");
+    AutoExecConfig(_, "bonus-round-resize");
+}
+
+public void BonusRound_OnReset(int client) {
+    Player_Resize(client, BASE_SCALE);
 }
 
 public void BonusRound_OnLoser(int client) {
-    if (Variable_PluginEnabled()) {
-        float scale = Variable_PlayerScale();
+    float scale = Variable_PlayerScale();
 
-        ResizePlayer(client, scale, RESIZE_MODE_ROUND_START);
-    }
+    Player_Resize(client, scale);
 }
 
 public void BonusRound_OnWinner(int client) {
-    if (Variable_PluginEnabled()) {
-        ResizePlayer(client, BASE_SCALE, RESIZE_MODE_NONE);
-    }
+    Player_Resize(client, BASE_SCALE);
 }
