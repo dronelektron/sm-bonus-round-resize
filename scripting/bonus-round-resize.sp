@@ -5,7 +5,6 @@
 
 #include "modules/console-variable.sp"
 
-#define AUTO_CREATE_YES true
 #define BASE_SCALE 1.0
 
 public Plugin myinfo = {
@@ -18,7 +17,7 @@ public Plugin myinfo = {
 
 public void OnPluginStart() {
     Variable_Create();
-    AutoExecConfig(AUTO_CREATE_YES, "bonus-round-resize");
+    AutoExecConfig(_, "bonus-round-resize");
 }
 
 public void BonusRound_OnReset(int client) {
