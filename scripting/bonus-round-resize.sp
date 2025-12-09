@@ -6,6 +6,7 @@
 #include "modules/console-variable.sp"
 
 #define AUTO_CREATE_YES true
+#define BASE_SCALE 1.0
 
 public Plugin myinfo = {
     name = "Bonus round resize",
@@ -20,6 +21,10 @@ public void OnPluginStart() {
     AutoExecConfig(AUTO_CREATE_YES, "bonus-round-resize");
 }
 
+public void BonusRound_OnReset(int client) {
+    Player_Resize(client, BASE_SCALE);
+}
+
 public void BonusRound_OnLoser(int client) {
     if (Variable_PluginEnabled()) {
         float scale = Variable_PlayerScale();
@@ -30,6 +35,6 @@ public void BonusRound_OnLoser(int client) {
 
 public void BonusRound_OnWinner(int client) {
     if (Variable_PluginEnabled()) {
-        Player_Resize(client, 1.0);
+        Player_Resize(client, BASE_SCALE);
     }
 }
