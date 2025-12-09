@@ -10,9 +10,9 @@
 public Plugin myinfo = {
     name = "Bonus round resize",
     author = "Dron-elektron",
-    description = "Allows you to resize players at the end of the round",
+    description = "Allows you to change the size of the players in the bonus round",
     version = "1.0.2",
-    url = "https://github.com/dronelektron/bonus-round-resize"
+    url = "https://github.com/dronelektron/sm-bonus-round-resize"
 };
 
 public void OnPluginStart() {
