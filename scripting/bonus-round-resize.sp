@@ -25,15 +25,11 @@ public void BonusRound_OnReset(int client) {
 }
 
 public void BonusRound_OnLoser(int client) {
-    if (Variable_PluginEnabled()) {
-        float scale = Variable_PlayerScale();
+    float scale = Variable_PlayerScale();
 
-        Player_Resize(client, scale);
-    }
+    Player_Resize(client, scale);
 }
 
 public void BonusRound_OnWinner(int client) {
-    if (Variable_PluginEnabled()) {
-        Player_Resize(client, BASE_SCALE);
-    }
+    Player_Resize(client, BASE_SCALE);
 }

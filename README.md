@@ -19,5 +19,4 @@ Allows you to change the size of the players in the bonus round
 
 ### Console Variables
 
-* sm_bonusroundresize_enable - Enable (1) or disable (0) plugin [default: "1"]
 * sm_bonusroundresize_player_scale - Player scale [default: "0.5"]
