@@ -11,7 +11,7 @@ public Plugin myinfo = {
     name = "Bonus round resize",
     author = "Dron-elektron",
     description = "Allows you to change the size of the players in the bonus round",
-    version = "1.0.2",
+    version = "1.1.0",
     url = "https://github.com/dronelektron/sm-bonus-round-resize"
 };
 
